@@ -1,0 +1,18 @@
+# VibraSer Runas — pacote PWA
+
+Este pacote mantém a aplicação HTML original e acrescenta os ficheiros mínimos para instalação como PWA.
+
+## Conteúdo
+- `index.html`: aplicação original com metadados PWA e registo do service worker.
+- `manifest.webmanifest`: nome, ícones e modo de apresentação.
+- `sw.js`: cache da aplicação para carregamento offline.
+- `icons/`: ícones da aplicação.
+
+## Publicação necessária
+A instalação PWA exige servir estes ficheiros por HTTPS (por exemplo, GitHub Pages). Abrir `index.html` diretamente a partir de Transferências não ativa a instalação PWA.
+
+## Atenção aos dados
+A aplicação original guarda clientes e leituras em `localStorage`. Os dados guardados sob o endereço do ficheiro local não são automaticamente transferidos para o novo endereço HTTPS. Antes de usar a versão publicada com dados reais, exporta uma cópia de segurança pela própria aplicação e testa a importação no novo endereço.
+
+## Segurança
+O ecrã de início de sessão original usa credenciais verificadas no próprio JavaScript do ficheiro. Isto é uma barreira visual, não autenticação segura para dados sensíveis. Não publiques dados pessoais de clientes nem trates esta versão como um serviço seguro multiutilizador sem autenticação e armazenamento protegidos.
